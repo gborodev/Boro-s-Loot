@@ -13,6 +13,7 @@
 *.controller merge=unityyamlmerge eol=lf
 *.vsconfig merge=unityyamlmerge eol=lf
 ## git-lfs ##
+*.json merge=unityyamlmerge eol=lf
 #Image
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
