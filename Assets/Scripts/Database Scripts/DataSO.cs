@@ -11,7 +11,7 @@ public class DataSO : ScriptableObject
     public string ID => _id;
     public string Name => _name;
 
-    protected virtual DataSO GetInstance()
+    public virtual DataSO GetInstance()
     {
         _id = Guid.NewGuid().ToString();
 

@@ -2,5 +2,6 @@ using UnityEngine;
 
 public class EnemySlot : MonoBehaviour
 {
-    [SerializeField] EnemyObject enemyObject;
+    [SerializeField] private EnemyObject enemyObject;
+
 }

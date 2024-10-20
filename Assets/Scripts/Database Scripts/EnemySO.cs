@@ -9,12 +9,12 @@ public class EnemySO : DataSO
 
     private EnemyStat[] stats;
 
-    private float GetStatValue(EnemyStatType statType, float multiplier)
+    public float GetStatValue(EnemyStatType statType, float multiplier)
     {
         return stats[(int)statType].GetValue(multiplier);
     }
 
-    protected override DataSO GetInstance()
+    public override DataSO GetInstance()
     {
         stats = new EnemyStat[]
         {

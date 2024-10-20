@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6933997550790510839}
   - component: {fileID: 7715770721203341634}
   - component: {fileID: 8732946133493615708}
+  - component: {fileID: 8334493812004023053}
   m_Layer: 5
   m_Name: Slot_2
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8334493812004023053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006487971941980805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c6cb3eddfd8447a9e7b390d80d856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObject: {fileID: 0}
 --- !u!1 &2220042191210355600
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +193,7 @@ GameObject:
   - component: {fileID: 5948942773686792769}
   - component: {fileID: 1427486140675051666}
   - component: {fileID: 6165081481572752507}
+  - component: {fileID: 2625218818929883732}
   m_Layer: 5
   m_Name: Slot_0
   m_TagString: Untagged
@@ -243,6 +258,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2625218818929883732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623992207834900312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c6cb3eddfd8447a9e7b390d80d856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObject: {fileID: 0}
 --- !u!1 &6972708788669021049
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +282,7 @@ GameObject:
   - component: {fileID: 7302188906548184714}
   - component: {fileID: 8165967975668638331}
   - component: {fileID: 416143800403740848}
+  - component: {fileID: 948580462465458519}
   m_Layer: 5
   m_Name: Slot_1
   m_TagString: Untagged
@@ -318,3 +347,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &948580462465458519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972708788669021049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c6cb3eddfd8447a9e7b390d80d856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObject: {fileID: 0}
