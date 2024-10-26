@@ -4,6 +4,7 @@ public class EnemyObject : MonoBehaviour
 {
     [SerializeField] private EnemySO data;
 
+    public EnemySO EnemyData { get { return data; } }
     public int MaxHealth { get; private set; }
     public int CurrentHealth { get; private set; }
 

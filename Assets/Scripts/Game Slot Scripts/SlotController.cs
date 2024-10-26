@@ -128,7 +128,7 @@ public class SlotController : MonoBehaviour
         stages.Dequeue();
 
         Destroy(content.gameObject);
-        UpdatePositions();
+        StartCoroutine(UpdatePositions());
     }
 
 }

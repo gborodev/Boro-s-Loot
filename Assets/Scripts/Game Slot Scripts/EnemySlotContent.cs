@@ -40,17 +40,24 @@ public class EnemySlotContent : MonoBehaviour
     public void SetSlot(EnemySO enemy)
     {
         enemies.Add(enemy);
+
         enemySlots[enemies.Count - 1].gameObject.name = enemy.Name;
         enemySlots[enemies.Count - 1].gameObject.SetActive(true);
+
+        enemySlots[enemies.Count - 1].OnPressSlot += RemoveSlot;
+
     }
 
-    public void RemoveSlot(EnemySO enemy)
+    public void RemoveSlot(EnemySlot slot)
     {
-        enemies.Remove(enemy);
-        enemySlots[enemies.Count - 1].gameObject.SetActive(false);
+        slot.gameObject.SetActive(false);
+
+        enemies.Remove(slot.Enemy);
 
         if (enemies.Count == 0)
         {
+            Destroy(gameObject);
+
             GameEvents.SlotEvents.OnCompleteStage?.Invoke(this);
         }
     }
