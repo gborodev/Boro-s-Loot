@@ -19,39 +19,33 @@ public class SlotController : MonoBehaviour
 
     private Queue<EnemySlotContent> stages = new Queue<EnemySlotContent>();
 
-    private void OnEnable()
+    private void Start()
     {
-        GameEvents.OnRoomStart += RoomStarted;
+        GameEvents.OnRoomStart += RoomStart;
         GameEvents.SlotEvents.OnCompleteStage += StageRemove;
     }
 
-    private void RoomStarted(RoomSO room)
+    //Mevcut odanýn oluþturulmasý ve odaya eklenecek düzenlemelerin yapýldýðý fonksiyon
+    private void RoomStart(RoomSO room)
     {
-        RoomEnemy[] roomEnemies = room.RoomEnemies;
+        EnemySO[] roomEnemies = room.Enemies;
 
         int level = GameManager.instance.GameLevel;
 
-        if (level <= 0) return; //Level is cannot be below 0
+        if (level <= 0) return; //Level 0 dan düþük olamaz
 
         int minEnemyCount = Mathf.FloorToInt(level * Mathf.Pow(1.25f, 2));
         int maxEnemyCount = Mathf.CeilToInt(level * Mathf.Pow(1.6f, 2));
 
-        int randomEnemyCount = Random.Range(minEnemyCount, maxEnemyCount);
+        int enemyCount = Random.Range(minEnemyCount, maxEnemyCount);
 
         List<EnemySO> enemyList = new List<EnemySO>();
 
-        for (int i = 0; i < randomEnemyCount; i++)
+        for (int i = 0; i < enemyCount; i++)
         {
             int randomEnemy = Random.Range(0, roomEnemies.Length);
-            bool isReach = roomEnemies[randomEnemy].IsReached(level);
 
-            while (!isReach)
-            {
-                randomEnemy = Random.Range(0, roomEnemies.Length);
-                isReach = roomEnemies[randomEnemy].IsReached(level);
-            }
-
-            enemyList.Add(roomEnemies[randomEnemy].GetEnemy());
+            enemyList.Add(roomEnemies[randomEnemy]);
         }
 
         StartCoroutine(StageInitialize(enemyList));

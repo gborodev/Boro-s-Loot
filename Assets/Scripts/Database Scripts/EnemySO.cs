@@ -7,22 +7,22 @@ public class EnemySO : DataSO
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
 
-    private EnemyStat[] stats;
+    private EnemyStat[] _stats;
 
     public float GetStatValue(EnemyStatType statType, float multiplier)
     {
-        return stats[(int)statType].GetValue(multiplier);
+        return _stats[(int)statType].GetValue(multiplier);
     }
 
-    public override DataSO GetInstance()
+    protected override void Awake()
     {
-        stats = new EnemyStat[]
+        _stats = new EnemyStat[]
         {
             new EnemyStat(EnemyStatType.Health, _health),
             new EnemyStat(EnemyStatType.Damage, _damage)
         };
 
-        return Instantiate(base.GetInstance());
+        base.Awake();
     }
 }
 
@@ -30,17 +30,17 @@ public enum EnemyStatType { Health, Damage }
 
 public struct EnemyStat
 {
-    private EnemyStatType statType;
-    private float baseValue;
+    private EnemyStatType _statType;
+    private float _baseValue;
 
     public EnemyStat(EnemyStatType statType, float baseValue)
     {
-        this.statType = statType;
-        this.baseValue = baseValue;
+        _statType = statType;
+        _baseValue = baseValue;
     }
 
     public float GetValue(float multiplier)
     {
-        return baseValue * multiplier;
+        return _baseValue * multiplier;
     }
 }

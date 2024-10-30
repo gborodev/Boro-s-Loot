@@ -11,10 +11,8 @@ public class DataSO : ScriptableObject
     public string ID => _id;
     public string Name => _name;
 
-    public virtual DataSO GetInstance()
+    protected virtual void Awake()
     {
         _id = Guid.NewGuid().ToString();
-
-        return this;
     }
 }
