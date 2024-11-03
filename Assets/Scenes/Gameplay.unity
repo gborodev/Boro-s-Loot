@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.78039217}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -664,6 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8d8660aae09724ca70d1dd5a1597b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameDifficulty: 0
   testRoom: {fileID: 11400000, guid: d9f7b26ef2dc01f4f82ff31089b72358, type: 2}
 --- !u!4 &835978051
 Transform:

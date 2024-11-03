@@ -8,9 +8,9 @@ public class EnemySlot : MonoBehaviour, IPointerClickHandler
 
     public event Action<EnemySlot> OnPressSlot;
 
-    public EnemySO Enemy => enemyObject.EnemyData;
+    public EnemyData Enemy => enemyObject.EnemyData;
 
-    public void Set(EnemySO enemyData, int level)
+    public void Set(EnemyData enemyData, int level)
     {
         enemyObject.EnemyInitialize(enemyData, level);
     }

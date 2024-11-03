@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DataSO : ScriptableObject
+public class Data : ScriptableObject
 {
     [Header("Data Stats")]
     private string _id;

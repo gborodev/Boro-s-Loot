@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySlotContent : MonoBehaviour
 {
-    private List<EnemySO> enemies = new List<EnemySO>();
+    private List<EnemyData> enemies = new List<EnemyData>();
 
     private RectTransform myRect;
     private EnemySlot[] enemySlots;
@@ -37,7 +37,7 @@ public class EnemySlotContent : MonoBehaviour
         myRect.localScale = Vector3.Lerp(Scale, scale, t);
     }
 
-    public void SetSlot(EnemySO enemy)
+    public void SetSlot(EnemyData enemy)
     {
         enemies.Add(enemy);
 

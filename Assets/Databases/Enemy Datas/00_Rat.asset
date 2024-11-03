@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f180768f130a9242982ed49b7ab9ccb, type: 3}
-  m_Name: 00_Slime
+  m_Script: {fileID: 11500000, guid: 050f7990f0bb6f645ace69822972dd93, type: 3}
+  m_Name: 00_Rat
   m_EditorClassIdentifier: 
-  _name: Slime
+  _name: Rat
   _health: 5
   _damage: 2

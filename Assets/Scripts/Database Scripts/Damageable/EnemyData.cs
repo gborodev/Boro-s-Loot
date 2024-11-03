@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Enemy Data")]
-public class EnemySO : DataSO
+[CreateAssetMenu(menuName = "Data/Damageable/Enemy Data")]
+public class EnemyData : DamageableData
 {
     [Header("Enemy Stats")]
     [SerializeField] private int _health;

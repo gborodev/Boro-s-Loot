@@ -2,7 +2,7 @@ using System;
 
 public static class GameEvents
 {
-    public static Action<RoomSO> OnRoomStart;
+    public static Action<StageData> OnRoomStart;
 
     public class SlotEvents
     {

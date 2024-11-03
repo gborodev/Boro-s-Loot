@@ -6,9 +6,15 @@ using Random = UnityEngine.Random;
 
 public class SlotController : MonoBehaviour
 {
-    [SerializeField] private Transform gamePanel;
-    [SerializeField] private EnemySlotContent slotContentPrefab;
-    [SerializeField][Range(1, 20)] private float slotAnimTime = 1f;
+    [SerializeField]
+    private Transform gamePanel;
+
+    [SerializeField]
+    private EnemySlotContent slotContentPrefab;
+
+    [SerializeField]
+    [Range(1, 20)]
+    private float slotAnimTime = 1f;
 
     private const float frontYPosition = -100f;
     private const float starterYPosition = 300f;
@@ -26,34 +32,34 @@ public class SlotController : MonoBehaviour
     }
 
     //Mevcut odanýn oluþturulmasý ve odaya eklenecek düzenlemelerin yapýldýðý fonksiyon
-    private void RoomStart(RoomSO room)
+    private void RoomStart(StageData room)
     {
-        EnemySO[] roomEnemies = room.Enemies;
-
-        int level = GameManager.instance.GameLevel;
-
-        if (level <= 0) return; //Level 0 dan düþük olamaz
-
-        int minEnemyCount = Mathf.FloorToInt(level * Mathf.Pow(1.25f, 2));
-        int maxEnemyCount = Mathf.CeilToInt(level * Mathf.Pow(1.6f, 2));
-
-        int enemyCount = Random.Range(minEnemyCount, maxEnemyCount);
-
-        List<EnemySO> enemyList = new List<EnemySO>();
-
-        for (int i = 0; i < enemyCount; i++)
-        {
-            int randomEnemy = Random.Range(0, roomEnemies.Length);
-
-            enemyList.Add(roomEnemies[randomEnemy]);
-        }
-
-        StartCoroutine(StageInitialize(enemyList));
+        //EnemyData[] roomEnemies = room.Enemies;
+        //
+        //int level = GameManager.instance.GameLevel;
+        //
+        //if (level <= 0) return; //Level 0 dan düþük olamaz
+        //
+        //int minEnemyCount = Mathf.FloorToInt(level * Mathf.Pow(1.25f, 2));
+        //int maxEnemyCount = Mathf.CeilToInt(level * Mathf.Pow(1.6f, 2));
+        //
+        //int enemyCount = Random.Range(minEnemyCount, maxEnemyCount);
+        //
+        //List<EnemyData> enemyList = new List<EnemyData>();
+        //
+        //for (int i = 0; i < enemyCount; i++)
+        //{
+        //    int randomEnemy = Random.Range(0, roomEnemies.Length);
+        //
+        //    enemyList.Add(roomEnemies[randomEnemy]);
+        //}
+        //
+        //StartCoroutine(StageInitialize(enemyList));
 
     }
 
     //StageInitialize oda yüklendiðinde odanýn contentlerini düzenleyen fonksiyon
-    private IEnumerator StageInitialize(List<EnemySO> enemies)
+    private IEnumerator StageInitialize(List<EnemyData> enemies)
     {
         //Düþman sayýsý sýfýrdan büyük ise her bir contentte spawn olacak enemy sayýsý hesaplanýr ve content spawnlanýr
         while (enemies.Count > 0)
@@ -69,7 +75,7 @@ public class SlotController : MonoBehaviour
         StartCoroutine(UpdatePositions());
     }
 
-    private void InstantiateStage(int slotCount, ref List<EnemySO> enemies)
+    private void InstantiateStage(int slotCount, ref List<EnemyData> enemies)
     {
         //Her bir content spawnlandýðýnda odanýn baþlangýcýnda pozisyonlar canvasýn dýþýna göre ayarlanýr ve slota eklenip arasýndaki mesafe artacak þekilde sýralanýr
 
@@ -81,7 +87,7 @@ public class SlotController : MonoBehaviour
         {
             if (enemies.Count == 0) break; //Düþman sayýsý sýfýr ise döngüden çýkýyoruz
 
-            EnemySO enemy = enemies[Random.Range(0, enemies.Count)];
+            EnemyData enemy = enemies[Random.Range(0, enemies.Count)];
             slotContent.SetSlot(enemy);
 
             enemies.Remove(enemy);
@@ -109,6 +115,7 @@ public class SlotController : MonoBehaviour
             }
             yield return null;
         }
+
         yield return new WaitForEndOfFrame();
 
         //Pozisyon güncellemesi tamamlandý ve öndeki stage tetikleniyor
