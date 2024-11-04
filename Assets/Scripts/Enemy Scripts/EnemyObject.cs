@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class EnemyObject : MonoBehaviour
 {
-    [SerializeField] private EnemyData data;
+    [SerializeField] private Enemy data;
 
-    public EnemyData EnemyData { get { return data; } }
+    public Enemy EnemyData { get { return data; } }
     public int MaxHealth { get; private set; }
     public int CurrentHealth { get; private set; }
 
-    public void EnemyInitialize(EnemyData data, int level)
+    public void EnemyInitialize(Enemy data, int level)
     {
         this.data = data;
 

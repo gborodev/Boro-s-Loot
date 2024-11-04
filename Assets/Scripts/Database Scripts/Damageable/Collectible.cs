@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Damageable/Collectible Data")]
-public class CollectibleData : DamageableData
+public class Collectible : DamageableData
 {
 
 }

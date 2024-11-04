@@ -59,7 +59,7 @@ public class SlotController : MonoBehaviour
     }
 
     //StageInitialize oda yüklendiðinde odanýn contentlerini düzenleyen fonksiyon
-    private IEnumerator StageInitialize(List<EnemyData> enemies)
+    private IEnumerator StageInitialize(List<Enemy> enemies)
     {
         //Düþman sayýsý sýfýrdan büyük ise her bir contentte spawn olacak enemy sayýsý hesaplanýr ve content spawnlanýr
         while (enemies.Count > 0)
@@ -75,7 +75,7 @@ public class SlotController : MonoBehaviour
         StartCoroutine(UpdatePositions());
     }
 
-    private void InstantiateStage(int slotCount, ref List<EnemyData> enemies)
+    private void InstantiateStage(int slotCount, ref List<Enemy> enemies)
     {
         //Her bir content spawnlandýðýnda odanýn baþlangýcýnda pozisyonlar canvasýn dýþýna göre ayarlanýr ve slota eklenip arasýndaki mesafe artacak þekilde sýralanýr
 
@@ -87,7 +87,7 @@ public class SlotController : MonoBehaviour
         {
             if (enemies.Count == 0) break; //Düþman sayýsý sýfýr ise döngüden çýkýyoruz
 
-            EnemyData enemy = enemies[Random.Range(0, enemies.Count)];
+            Enemy enemy = enemies[Random.Range(0, enemies.Count)];
             slotContent.SetSlot(enemy);
 
             enemies.Remove(enemy);

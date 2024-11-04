@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -5,16 +6,22 @@ public class GameManager : Singleton<GameManager>
     [Header("Game Options")]
     [SerializeField] private GameDifficultyType _gameDifficulty;
 
-    [SerializeField] private StageData testRoom;
+    [SerializeField] private StageData testStage;
 
     public int GameLevel { get; private set; }
 
     public GameDifficultyType GameDifficulty => _gameDifficulty;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        GameLevel = 2;
+        int i = 0;
 
-        GameEvents.OnRoomStart?.Invoke(testRoom);
+        while (i < 1000)
+        {
+            i++;
+
+            Debug.Log(testStage.GetTarget(_gameDifficulty).Name);
+            yield return null;
+        }
     }
 }

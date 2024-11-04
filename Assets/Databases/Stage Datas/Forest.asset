@@ -13,12 +13,25 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   _name: Forest
-  _enemies:
+  _targets:
+  - _groupName: Collectibles
+    _targets:
+    - {fileID: 11400000, guid: dc57fcd88ad2ca34cb0bab21761a7659, type: 2}
+    weights:
+    - _difficulty: 1
+      _weight: 100
+    - _difficulty: 2
+      _weight: 100
+    - _difficulty: 3
+      _weight: 100
+  - _groupName: Enemies
     _targets:
     - {fileID: 11400000, guid: 1c4e76cef7ac5b24eb20392f9ad12f69, type: 2}
     - {fileID: 11400000, guid: 7b364eb04f56a2745b16cc155eca11c1, type: 2}
-    _weight: 40
-  _collectibles:
-    _targets:
-    - {fileID: 11400000, guid: dc57fcd88ad2ca34cb0bab21761a7659, type: 2}
-    _weight: 100
+    weights:
+    - _difficulty: 1
+      _weight: 5
+    - _difficulty: 2
+      _weight: 30
+    - _difficulty: 2
+      _weight: 50

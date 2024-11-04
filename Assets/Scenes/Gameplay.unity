@@ -664,8 +664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8d8660aae09724ca70d1dd5a1597b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameDifficulty: 0
-  testRoom: {fileID: 11400000, guid: d9f7b26ef2dc01f4f82ff31089b72358, type: 2}
+  _gameDifficulty: 1
+  testStage: {fileID: 11400000, guid: 46e55c592ad4e734b9075c30dc30a741, type: 2}
 --- !u!4 &835978051
 Transform:
   m_ObjectHideFlags: 0

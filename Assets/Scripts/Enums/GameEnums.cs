@@ -1,6 +1,6 @@
 public enum GameDifficultyType
 {
-    Easy = 100,
-    Normal = 10,
-    Hard = 1,
+    Easy = 1,
+    Normal = 2,
+    Hard = 3,
 }
