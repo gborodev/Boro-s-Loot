@@ -8,8 +8,6 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private StageData testStage;
 
-    public int GameLevel { get; private set; }
-
     public GameDifficultyType GameDifficulty => _gameDifficulty;
 
     private IEnumerator Start()

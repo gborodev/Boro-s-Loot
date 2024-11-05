@@ -24,6 +24,11 @@ public class Enemy : DamageableData
 
         base.Awake();
     }
+
+    public override void OnHit(float damage)
+    {
+        _health -= (int)damage;
+    }
 }
 
 public enum EnemyStatType { Health, Damage }
