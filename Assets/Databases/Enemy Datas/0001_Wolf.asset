@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517e2aa07c26e4e4784df4c06a208978, type: 3}
-  m_Name: 00_Rat
+  m_Script: {fileID: 11500000, guid: 9ad919a7416e8f04d9243aeab6d17fe9, type: 3}
+  m_Name: 0001_Wolf
   m_EditorClassIdentifier: 
-  _name: Rat
-  _health: 5
-  _damage: 2
+  _name: Wolf
+  _appearanceLevel: 1
+  _baseHealth: 5
+  _baseDamage: 2

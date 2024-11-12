@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 64313283}
   - component: {fileID: 64313282}
   m_Layer: 5
-  m_Name: Game Panel
+  m_Name: Combat Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 835978051}
   - component: {fileID: 835978050}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: ---Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,8 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8d8660aae09724ca70d1dd5a1597b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameDifficulty: 1
-  testStage: {fileID: 11400000, guid: 46e55c592ad4e734b9075c30dc30a741, type: 2}
+  _gameLevel: 1
 --- !u!4 &835978051
 Transform:
   m_ObjectHideFlags: 0
@@ -726,7 +725,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1962823572
+--- !u!1 &1966392601
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -734,37 +733,82 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1962823574}
-  - component: {fileID: 1962823573}
+  - component: {fileID: 1966392603}
+  - component: {fileID: 1966392602}
   m_Layer: 0
-  m_Name: Slot Controller
+  m_Name: ---Combat Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1962823573
+--- !u!114 &1966392602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962823572}
+  m_GameObject: {fileID: 1966392601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e487612d3baa0f340a4c384e1abac996, type: 3}
+  m_Script: {fileID: 11500000, guid: b4229c2b3dd4c1b418b627905cc6103e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePanel: {fileID: 64313281}
-  slotContentPrefab: {fileID: 3163736569381339687, guid: 0589959cfd2f51f43aa859a0b5a16e64, type: 3}
-  slotAnimTime: 20
---- !u!4 &1962823574
+  _database: {fileID: 11400000, guid: edfcd0ef436d1db41848a92e8e48f4fd, type: 2}
+  _combatPanel: {fileID: 64313281}
+  _combatStagePrefab: {fileID: 157084879925112596, guid: 4da1c2b5730a7b849aa7d2970ce4088e, type: 3}
+  _combatMovingTime: 0.2
+--- !u!4 &1966392603
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962823572}
+  m_GameObject: {fileID: 1966392601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2090652305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090652307}
+  - component: {fileID: 2090652306}
+  m_Layer: 0
+  m_Name: ---Combat Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2090652306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090652305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65c9922109a0f9478b3960cd09914c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2090652307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090652305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -778,7 +822,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 835978051}
-  - {fileID: 1962823574}
+  - {fileID: 1966392603}
+  - {fileID: 2090652307}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 83727112}

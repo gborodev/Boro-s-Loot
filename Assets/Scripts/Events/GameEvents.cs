@@ -1,12 +1,15 @@
-using System;
-
-public static class GameEvents
+namespace GameEvents
 {
-    public static Action<StageData> OnRoomStart;
 
-    public class SlotEvents
+    public static class StageEvents
     {
-        public static Action<EnemySlotContent> OnCompleteStage;
-        public static Action<EnemySlotContent> OnInitializeStage;
+        public delegate void StageStartedHandler();
+        public static StageStartedHandler OnStageStarted;
+
+        public delegate void StageSelectedHandler(CombatStage stage);
+        public static StageSelectedHandler OnStageSelected;
+
+        public delegate void StageCompletedHandler();
+        public static StageCompletedHandler OnStageCompleted;
     }
 }

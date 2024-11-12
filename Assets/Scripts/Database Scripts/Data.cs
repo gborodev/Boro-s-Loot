@@ -7,9 +7,11 @@ public class Data : ScriptableObject
     private string _id;
 
     [SerializeField] private string _name;
+    [SerializeField] private Sprite _sprite;
 
-    public string ID => _id;
-    public string Name => _name;
+    public string DataID => _id;
+    public string DataName => _name;
+    public Sprite DataSprite => _sprite;
 
     protected virtual void Awake()
     {

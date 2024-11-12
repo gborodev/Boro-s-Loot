@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b5f0297d074f74495c76180920c791, type: 3}
-  m_Name: 00_Apple Tree
+  m_Script: {fileID: 11500000, guid: 9ad919a7416e8f04d9243aeab6d17fe9, type: 3}
+  m_Name: 0000_Rat
   m_EditorClassIdentifier: 
-  _name: Apple Tree
+  _name: Rat
+  _appearanceLevel: 1
+  _baseHealth: 2
+  _baseDamage: 2

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b4229c2b3dd4c1b418b627905cc6103e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _database: {fileID: 11400000, guid: edfcd0ef436d1db41848a92e8e48f4fd, type: 2}
+  - _combatPanel: {instanceID: 0}
+  - _combatStagePrefab: {fileID: 157084879925112596, guid: 4da1c2b5730a7b849aa7d2970ce4088e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

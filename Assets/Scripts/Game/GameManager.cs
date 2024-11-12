@@ -1,25 +1,14 @@
-using System.Collections;
+using GameEvents;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [Header("Game Options")]
-    [SerializeField] private GameDifficultyType _gameDifficulty;
+    [SerializeField] private int _gameLevel = 1;
 
-    [SerializeField] private StageData testStage;
+    public int GameLevel => _gameLevel;
 
-    public GameDifficultyType GameDifficulty => _gameDifficulty;
-
-    private IEnumerator Start()
+    private void Start()
     {
-        int i = 0;
-
-        while (i < 1000)
-        {
-            i++;
-
-            Debug.Log(testStage.GetTarget(_gameDifficulty).Name);
-            yield return null;
-        }
+        StageEvents.OnStageStarted?.Invoke();
     }
 }
