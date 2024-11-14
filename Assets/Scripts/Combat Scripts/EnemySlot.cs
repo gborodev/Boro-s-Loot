@@ -7,7 +7,6 @@ public class EnemySlot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image _enemyImage;
 
-
     private EnemyData _enemyData;
     public EnemyData EnemyData
     {
@@ -29,6 +28,11 @@ public class EnemySlot : MonoBehaviour, IPointerClickHandler
     }
 
     public event Action<EnemySlot> OnClickSlot;
+
+    private void Awake()
+    {
+        _enemyImage = GetComponent<Image>();
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

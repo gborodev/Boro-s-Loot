@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 2166801863330659549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4476365838534447873}
@@ -93,7 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f616935b13f157d4f93225cb7ac58eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slots: []
+  _slots:
+  - {fileID: 6603924826852966630}
+  - {fileID: 8565255535762810792}
+  - {fileID: 473620701242204352}
 --- !u!1 &2724939220560474097
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf53fc533663264cac1152519a3fa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyImage: {fileID: 0}
 --- !u!1 &3767588275389186663
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf53fc533663264cac1152519a3fa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyImage: {fileID: 0}
 --- !u!1 &4596490000153423152
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,3 +363,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf53fc533663264cac1152519a3fa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyImage: {fileID: 0}

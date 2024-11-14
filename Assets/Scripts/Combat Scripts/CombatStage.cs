@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatStage : MonoBehaviour
 {
     [SerializeField] private EnemySlot[] _slots;
 
-    private RectTransform rect;
+    private List<EnemySlot> _activeSlots;
 
+
+    private RectTransform rect;
     public Vector3 LastPosition { get; set; } = Vector3.zero;
     public Vector3 LastScale { get; set; } = Vector3.zero;
 
@@ -18,7 +21,6 @@ public class CombatStage : MonoBehaviour
             rect.anchoredPosition = value;
         }
     }
-
     public Vector3 Scale
     {
         get => rect.localScale;
@@ -32,6 +34,35 @@ public class CombatStage : MonoBehaviour
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
+
+        Scale = Vector3.zero;
+        Position = Vector3.zero;
+    }
+
+    public void InitializeSlots(List<EnemyData> enemyDatas)
+    {
+        _activeSlots = new List<EnemySlot>();
+
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            int index = i;
+
+            if (index > enemyDatas.Count - 1)
+            {
+                _slots[index].EnemyData = null;
+            }
+            else
+            {
+                _slots[index].EnemyData = enemyDatas[index];
+
+                _activeSlots.Add(_slots[index]);
+            }
+        }
+    }
+
+    public List<EnemySlot> GetSlots()
+    {
+        return _activeSlots;
     }
 
 }

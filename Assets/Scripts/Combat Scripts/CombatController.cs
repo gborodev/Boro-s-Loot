@@ -24,8 +24,8 @@ public class CombatController : MonoBehaviour
     private readonly int minStageSize = 3;
 
     private List<EnemyData> _enemies;
-
-    private CombatStage _currentStage;
+    private const int MIN_ENEMY_COUNT = 1;
+    private const int MAX_ENEMY_COUNT = 3;
 
     private void OnEnable()
     {
@@ -62,7 +62,7 @@ public class CombatController : MonoBehaviour
         StartCoroutine(StageMoverCoroutine());
     }
 
-    public void StageComplete()
+    private void StageComplete()
     {
         _combatStages.RemoveAt(0);
 
@@ -115,6 +115,21 @@ public class CombatController : MonoBehaviour
 
         combatStage.LastPosition = combatStage.Position;
         combatStage.LastScale = combatStage.Scale;
+
+        int enemyCount = Random.Range(MIN_ENEMY_COUNT, MAX_ENEMY_COUNT + 1);
+
+        List<EnemyData> randomEnemies = new List<EnemyData>();
+        for (int i = 0; i < enemyCount; i++)
+        {
+            EnemyData enemy = _enemies[Random.Range(0, _enemies.Count)];
+
+            if (enemy != null)
+            {
+                randomEnemies.Add(enemy);
+            }
+        }
+
+        combatStage.InitializeSlots(randomEnemies);
 
         _combatStages.Add(combatStage);
     }
