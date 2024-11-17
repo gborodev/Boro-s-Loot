@@ -30,6 +30,16 @@ public class CombatStage : MonoBehaviour
             rect.localScale = value;
         }
     }
+    public Color VisibilityMask
+    {
+        set
+        {
+            foreach (EnemySlot slot in _slots)
+            {
+                slot.SlotColor = value;
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -63,6 +73,18 @@ public class CombatStage : MonoBehaviour
     public List<EnemySlot> GetSlots()
     {
         return _activeSlots;
+    }
+
+    public bool IsCleared()
+    {
+        int count = _activeSlots.Count;
+
+        foreach (EnemySlot slot in _activeSlots)
+        {
+            //Mevcut aþamanýn kalan düþman kontrolü
+        }
+
+        return count <= 0;
     }
 
 }

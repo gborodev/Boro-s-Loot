@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class CombatManager : Singleton<CombatManager>
 {
@@ -34,7 +33,7 @@ public class CombatManager : Singleton<CombatManager>
         }
 
         //Baþlangýçta bir hedef seçildi.
-        EnemySelected(activeSlots[Mathf.FloorToInt((float)(activeSlots.Count - 1) / 2)]);
+        //EnemySelected(activeSlots[Mathf.FloorToInt((float)(activeSlots.Count - 1) / 2)]);
     }
 
     //Seçilen slotun iþlevleri.
@@ -42,6 +41,11 @@ public class CombatManager : Singleton<CombatManager>
     {
         _currentEnemySlot = slot;
 
-        Debug.Log("Select: " + slot.EnemyData.DataName, slot.gameObject);
+        //Test. Silinecek
+        if (_currentStage.IsCleared())
+        {
+            GameEvents.StageEvents.OnStageCleared?.Invoke(_currentStage);
+            _currentStage = null;
+        }
     }
 }

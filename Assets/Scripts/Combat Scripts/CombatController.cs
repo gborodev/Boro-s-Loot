@@ -16,6 +16,8 @@ public class CombatController : MonoBehaviour
     [Header("Combat Control Variables")]
     [SerializeField][Range(0.1f, 1f)] private float _combatMovingTime = 1f;
 
+    [SerializeField] private List<Color> _visibilityMasks;
+
     private readonly int frontY = -100;
     private readonly int startY = 300;
     private readonly int stageSpacing = 200;
@@ -30,7 +32,7 @@ public class CombatController : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.StageEvents.OnStageStarted += InitializeEnemies;
-        GameEvents.StageEvents.OnStageCompleted += StageComplete;
+        GameEvents.StageEvents.OnStageCleared += StageClear;
     }
 
     private void InitializeEnemies()
@@ -62,9 +64,10 @@ public class CombatController : MonoBehaviour
         StartCoroutine(StageMoverCoroutine());
     }
 
-    private void StageComplete()
+    private void StageClear(CombatStage stage)
     {
-        _combatStages.RemoveAt(0);
+        _combatStages.Remove(stage);
+        Destroy(stage.gameObject);
 
         Vector3 instantiatePosition = new Vector3(0, _combatStages[^1].Position.y + stageSpacing, 0);
         StageInstantiate(instantiatePosition);
@@ -74,8 +77,16 @@ public class CombatController : MonoBehaviour
 
     private IEnumerator StageMoverCoroutine()
     {
-        float timer = 0;
+        //Baþlangýçta mevcut aþamalarýn görünürlüðünü ayarlýyoruz
+        for (int i = 0; i < _combatStages.Count; i++)
+        {
+            CombatStage stage = _combatStages[i];
 
+            stage.VisibilityMask = _visibilityMasks[i];
+        }
+
+        //Süreç boyunca mevcut aþamalarý ilerletiyoruz.
+        float timer = 0;
         while (timer < _combatMovingTime)
         {
             timer += Time.deltaTime;
@@ -96,6 +107,7 @@ public class CombatController : MonoBehaviour
             yield return null;
         }
 
+        //Ýþlemler bittiðinde bulunduklarý pozisyonu kayýt ediyoruz
         for (int i = 0; i < _combatStages.Count; i++)
         {
             CombatStage stage = _combatStages[i];

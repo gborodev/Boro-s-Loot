@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0000_Rat
   m_EditorClassIdentifier: 
   _name: Rat
-  _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 1616047800471487896, guid: b6fe5aeec8128b048a2c22855a0e015f, type: 3}
   _appearanceLevel: 1
   _baseHealth: 2
   _baseDamage: 2

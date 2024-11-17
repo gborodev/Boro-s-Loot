@@ -5,8 +5,21 @@ using UnityEngine.UI;
 
 public class EnemySlot : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private Image _enemyImage;
+    private Image _enemyImage;
+    private Image _healthImage;
+    private Image _armorImage;
 
+    //Slotun aþamaya göre görünürlük deðeri
+    public Color SlotColor
+    {
+        get => _enemyImage.color;
+        set
+        {
+            _enemyImage.color = value;
+        }
+    }
+
+    //Mevcut Slot Data
     private EnemyData _enemyData;
     public EnemyData EnemyData
     {
@@ -23,15 +36,33 @@ public class EnemySlot : MonoBehaviour, IPointerClickHandler
             else
             {
                 _enemyImage.sprite = _enemyData.DataSprite;
+                _enemyImage.SetNativeSize();
             }
+
+            _healthImage.gameObject.SetActive(false);
+            _armorImage.gameObject.SetActive(false);
         }
     }
 
+    public int Health
+    {
+        set
+        {
+
+
+        }
+    }
+
+
+    //Slotun týklanýlabilirlik eventi
     public event Action<EnemySlot> OnClickSlot;
 
     private void Awake()
     {
         _enemyImage = GetComponent<Image>();
+
+        _healthImage = transform.GetChild(0).GetComponent<Image>();
+        _armorImage = transform.GetChild(1).GetComponent<Image>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
