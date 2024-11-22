@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class CombatManager : Singleton<CombatManager>
 {
     private CombatStage _currentStage;
 
     private List<EnemySlot> _currentSlots = new List<EnemySlot>();
-    private EnemySlot _currentEnemySlot;
+    private EnemySlot _selectedEnemySlot;
 
     private void Start()
     {
@@ -30,22 +31,16 @@ public class CombatManager : Singleton<CombatManager>
         foreach (EnemySlot slot in activeSlots)
         {
             slot.OnClickSlot += EnemySelected;
+            slot.SlotActivated();
         }
 
         //Baþlangýçta bir hedef seçildi.
-        //EnemySelected(activeSlots[Mathf.FloorToInt((float)(activeSlots.Count - 1) / 2)]);
+        EnemySelected(activeSlots[Mathf.FloorToInt((float)(activeSlots.Count - 1) / 2)]);
     }
 
     //Seçilen slotun iþlevleri.
     private void EnemySelected(EnemySlot slot)
     {
-        _currentEnemySlot = slot;
-
-        //Test. Silinecek
-        if (_currentStage.IsCleared())
-        {
-            GameEvents.StageEvents.OnStageCleared?.Invoke(_currentStage);
-            _currentStage = null;
-        }
+        _selectedEnemySlot = slot;
     }
 }

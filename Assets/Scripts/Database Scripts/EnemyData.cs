@@ -8,10 +8,12 @@ public class EnemyData : Data
 
     [Header("Combat Stats")]
     [SerializeField] private int _baseHealth;
+    [SerializeField] private int _baseArmor;
     [SerializeField] private int _baseDamage;
 
     public int LevelRequirement => _appearanceLevel;
 
     public int BaseHealth => _baseHealth;
+    public int BaseArmor => _baseArmor;
     public int BaseDamage => _baseDamage;
 }

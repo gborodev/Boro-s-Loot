@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemySlot : MonoBehaviour, IPointerClickHandler
 {
-    private Image _enemyImage;
+    [SerializeField] private Image _enemyImage;
     private Image _healthImage;
     private Image _armorImage;
 
@@ -36,20 +36,28 @@ public class EnemySlot : MonoBehaviour, IPointerClickHandler
             else
             {
                 _enemyImage.sprite = _enemyData.DataSprite;
-                _enemyImage.SetNativeSize();
             }
-
-            _healthImage.gameObject.SetActive(false);
-            _armorImage.gameObject.SetActive(false);
         }
     }
 
+    private int _health;
     public int Health
     {
+        get => _health;
         set
         {
+            _health = value;
 
+        }
+    }
 
+    private int _armor;
+    public int Armor
+    {
+        get => _armor;
+        set
+        {
+            _armor = value;
         }
     }
 
@@ -57,12 +65,16 @@ public class EnemySlot : MonoBehaviour, IPointerClickHandler
     //Slotun týklanýlabilirlik eventi
     public event Action<EnemySlot> OnClickSlot;
 
-    private void Awake()
+    public void SlotActivated()
     {
-        _enemyImage = GetComponent<Image>();
+        if (_enemyData is not null)
+        {
+            _healthImage.gameObject.SetActive(true);
+            _armorImage.gameObject.SetActive(true);
 
-        _healthImage = transform.GetChild(0).GetComponent<Image>();
-        _armorImage = transform.GetChild(1).GetComponent<Image>();
+            Health = _enemyData.BaseHealth;
+            Armor = _enemyData.BaseArmor;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
